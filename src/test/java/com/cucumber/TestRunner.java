@@ -23,7 +23,7 @@ public class TestRunner {
         String projectPath = System.getProperty("user.dir");
         String reportConfigPath = projectPath + "/src/test/java/resources/extentreport/extent-config.xml"; // path from contact root
         Reporter.loadXMLConfig(reportConfigPath);
-        Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
+        Reporter.setSystemInfo("User Name", "Jimil Patel");
         Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
         Reporter.setSystemInfo("Machine", "Windows 10" + "64 Bit");
         Reporter.setSystemInfo("Selenium", "3.141.59");

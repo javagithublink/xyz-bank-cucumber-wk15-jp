@@ -65,7 +65,7 @@ public class AccountPage extends Utility {
     public void clickOnDepositButton() {
 
         pmClickOnElement(depositButton);
-        
+        log.info("Clicking on Deposit Button : "+ depositButton.toString());
     }
 
     public void verifyDepositSuccessFullMessage() {
@@ -73,6 +73,7 @@ public class AccountPage extends Utility {
         String expected = "Deposit Successful".trim();
         String actual = pmGetTextFromElement(depositMessage);
         Assert.assertEquals("wrong message",expected,actual);
+        log.info("Verifying successful deposit message : "+ depositMessage.toString());
 
     }
 
