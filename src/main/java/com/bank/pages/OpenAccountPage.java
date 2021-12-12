@@ -1,6 +1,8 @@
 package com.bank.pages;
 
 import com.bank.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,9 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class OpenAccountPage extends Utility {
 
-//    By searchText = By.xpath("//select[@id='userSelect']");
-//    By currencyText = By.xpath("//select[@id='currency']");
-//    By processButton = By.xpath("//button[normalize-space()='Process']");
+    private static final Logger log = LogManager.getLogger(OpenAccountPage.class.getName());
 
     @FindBy(xpath = "//select[@id='userSelect']")
     WebElement searchText;
@@ -28,31 +28,35 @@ public class OpenAccountPage extends Utility {
     AddCustomerPage addCustomerPage = new AddCustomerPage();
 
 
+    public void searchCustomer(String fName, String lName) {
 
-    public void searchCustomer(String fName, String lName){
-
-        pmSelectByVisibleTextFromDropDown(searchText,fName.trim()+" "+lName.trim());
+        pmSelectByVisibleTextFromDropDown(searchText, fName.trim() + " " + lName.trim());
+        log.info("Search customer name to open account : " + searchText.toString());
     }
 
-    public void selectCurrency(String currency){
-
-        pmSelectByVisibleTextFromDropDown(currencyText,currency);
+    public void selectCurrency(String currency) {
+        pmwaitWithThreadSleep(10);
+        pmSelectByVisibleTextFromDropDown(currencyText, currency);
+        log.info("Select currency : " + currencyText.toString());
     }
 
-    public void clickOnProcessButton(){
-
+    public void clickOnProcessButton() {
+        pmwaitWithThreadSleep(10);
         pmClickOnElement(processButton);
+        //log.info("Clicking on process button : " + processButton.toString());
     }
 
-    public void verifyAccountCreatedSuccessfullyText(){
+    public void verifyAccountCreatedSuccessfullyText() {
 
-
+        pmwaitWithThreadSleep(10);
         String expected = "Account created successfully with account Number :1016";
         String actual = pmGetTextFromAlert();
-        Assert.assertEquals("wrong message",expected.substring(0,20),actual.substring(0,20));
+        Assert.assertTrue(actual.contains(expected));
+        log.info("Verifying new account created message : "+actual.toString());
     }
 
-    public void clickOnOkButtonPopUp(){
+    public void clickOnOkButtonPopUp() {
         pmAcceptAlert();
+        log.info("Accepting new account created successfully alert");
     }
 }

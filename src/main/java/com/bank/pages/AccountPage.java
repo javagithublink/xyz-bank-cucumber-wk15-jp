@@ -53,53 +53,57 @@ public class AccountPage extends Utility {
     public void clickOnDepositTab() {
 
         pmClickOnElement(depositTab);
-        log.info("Clicking on Deposit Tab : "+depositTab.toString());
+        log.info("Clicking on Deposit Tab : " + depositTab.toString());
     }
 
     public void enterAmount(String amount) {
 
         pmSendTextToElement(amountField, amount);
-        log.info("Entering deposit Amount : "+ amountField.toString());
+        log.info("Entering deposit Amount : " + amountField.toString());
     }
 
     public void clickOnDepositButton() {
 
         pmClickOnElement(depositButton);
-        log.info("Clicking on Deposit Button : "+ depositButton.toString());
+        log.info("Clicking on Deposit Button : " + depositButton.toString());
     }
 
     public void verifyDepositSuccessFullMessage() {
 
         String expected = "Deposit Successful".trim();
         String actual = pmGetTextFromElement(depositMessage);
-        Assert.assertEquals("wrong message",expected,actual);
-        log.info("Verifying successful deposit message : "+ depositMessage.toString());
+        Assert.assertEquals("wrong message", expected, actual);
+        log.info("Verifying successful deposit message : " + depositMessage.toString());
 
     }
 
     public void clickOnWithdrawlTab() {
 
         pmClickOnElement(withdrawlTab);
+        log.info("Click on withdrawl tab : " + withdrawlTab.toString());
 
     }
 
     public void enterWithdrawlAmount(String amount) {
 
         pmSendTextToElement(withdrawlAmountField, amount);
+        log.info("Enter withdrawl amount : " + withdrawlAmountField.toString());
 
     }
 
     public void clickOnWithdrawlButton() {
 
         pmClickOnElement(withdrawlButton);
+        log.info("Click on withdrawl button : " + withdrawlButton.toString());
     }
 
     public void verifyTransactionSuccessfulMessage() {
 
         String expected = "Transaction successful";
-                String actual = pmGetTextFromElement(withdrawlMessage);
+        String actual = pmGetTextFromElement(withdrawlMessage);
 
-        Assert.assertEquals("wrong withdrawal message",expected,actual);
+        Assert.assertEquals("wrong withdrawal message", expected, actual);
+        log.info("Verify Transaction successful message : "+withdrawlMessage.toString());
     }
 
 

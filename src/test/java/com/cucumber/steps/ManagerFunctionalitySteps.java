@@ -62,6 +62,7 @@ public class ManagerFunctionalitySteps {
     @And("^Manager clicks on 'process' button$")
     public void managerClicksOnProcessButton() {
         new OpenAccountPage().clickOnProcessButton();
+
     }
 
     @Then("^Manager has opened customer account successfully$")

@@ -1,6 +1,8 @@
 package com.bank.pages;
 
 import com.bank.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -8,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BankManagerLoginPage extends Utility {
 
-    //By addCustomerTab = By.xpath("//button[normalize-space()='Add Customer']");
-    //By openAccountTab = By.xpath("//button[normalize-space()='Open Account']");
+    private static final Logger log = LogManager.getLogger(BankManagerLoginPage.class.getName());
+
     @CacheLookup
     @FindBy (xpath = "//button[normalize-space()='Add Customer']")
     WebElement addCustomerTab;
@@ -25,10 +27,12 @@ public class BankManagerLoginPage extends Utility {
     public void clickOnAddCustomerTab(){
 
         pmClickOnElement(addCustomerTab);
+        log.info("Click on add customer tab : "+addCustomerTab.toString());
     }
 
     public void clickOnOpenAccountTab(){
 
         pmClickOnElement(openAccountTab);
+        log.info("Click on open account tab : "+openAccountTab.toString());
     }
 }

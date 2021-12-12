@@ -1,6 +1,8 @@
 package com.bank.pages;
 
 import com.bank.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,18 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CustomersPage extends Utility {
 
+    private static final Logger log = LogManager.getLogger(CustomersPage.class.getName());
 
-
-    //By logOutButton = By.xpath("//button[normalize-space()='Logout']");
-    //By nameText = By.xpath("//strong//span[@class='fontBig ng-binding']");
-    //By depositTab = By.xpath("//button[normalize-space()='Deposit']");
-    //By amountField = By.xpath("//input[@placeholder='amount']");
-    //By depositButton = By.xpath("//button[@type='submit']");
-    //By depositMessage = By.xpath("//span[contains(normalize-space(),'Deposit Successful')]");
-    //By withdrawlTab = By.xpath("//button[normalize-space()='Withdrawl']");
-    //By withdrawlAmountField = By.xpath("//input[@placeholder='amount']");
-    //By withdrawlButton = By.xpath("//button[normalize-space()='Withdraw']");
-    //By withdrawlMessage = By.xpath("//span[contains(normalize-space(),'Transaction successful')]");
 
     @CacheLookup
     @FindBy(xpath = "//button[normalize-space()='Logout']")
@@ -37,31 +29,31 @@ public class CustomersPage extends Utility {
     WebElement yourNameText;
 
 
-
     public CustomersPage() {
-        PageFactory.initElements(driver,this)   ;
+        PageFactory.initElements(driver, this);
     }
 
-    public void verifyLogOutButtonDisplayed(){
+    public void verifyLogOutButtonDisplayed() {
 
-        pmWaitUntilVisibilityOfElementLocated(By.xpath("//button[normalize-space()='Logout']"),20);
+        pmWaitUntilVisibilityOfElementLocated(By.xpath("//button[normalize-space()='Logout']"), 20);
         boolean actual = logOutButton.isDisplayed();
-       Assert.assertTrue(actual);
-
+        Assert.assertTrue(actual);
+       log.info("Verifying logout button displayed : "+logOutButton.toString());
 
     }
 
-    public void verifyYourNameTextDisplayed(String fName, String lName){
+    public void verifyYourNameTextDisplayed(String fName, String lName) {
         String actual = pmGetTextFromElement(nameText);
-        Assert.assertEquals("wrong name displayed",fName.trim()+" "+lName.trim(),actual);
+        Assert.assertEquals("wrong name displayed", fName.trim() + " " + lName.trim(), actual);
+        log.info("Verifying user can logout successfully"+ nameText.getText());
     }
 
-    public void clickOnLogOutButton(){
+    public void clickOnLogOutButton() {
 
         pmClickOnElement(logOutButton);
     }
 
-    public void verifySuccessfulLogout(){
+    public void verifySuccessfulLogout() {
         String expected = "Your Name";
         String actual = pmGetTextFromElement(yourNameText);
         //Assert.assertEquals("user has not logged out successfully",expected,actual.contains("Your Name"));
