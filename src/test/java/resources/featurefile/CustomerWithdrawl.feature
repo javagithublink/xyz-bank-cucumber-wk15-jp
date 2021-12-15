@@ -1,6 +1,7 @@
 Feature: Customer withdrawl money functionality
   Customer should be able to withdraw money as required
 
+  @Sanity @Regression
   Scenario: Customer can withdraw money successfully
     Given   Customer clicks on 'Customer Login' Tab
     When    Customer search for name "Harry"" Potter"

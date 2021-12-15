@@ -1,6 +1,7 @@
 Feature: Manager Functionality Test
   Manager should be able to add customer and open account successfully
 
+  @Regression
   Scenario: Manager should add customer successfully
     Given   Manager clicks on Bank Manager Login Tab
     When    Manager clicks on 'Add Customer' Tab
@@ -10,7 +11,7 @@ Feature: Manager Functionality Test
     And     Manager clicks on 'Add Customer' button
     Then    Manager has added customer successfully
 
-
+    @Regression
     Scenario: Manager should open customer account successfully
       Given   Manager clicks on Bank Manager Login Tab
       When    Manager clicks on 'Open Account' Tab

@@ -1,6 +1,7 @@
 Feature: Customer deposit functionality
   customer should be able to deposit money into account successfully
 
+  @Smoke @Regression
   Scenario: Customer can deposit money into account successfully
     Given   Customer clicks on 'Customer Login' Tab
     When    Customer search for name "Harry"" Potter"
