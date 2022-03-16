@@ -1,5 +1,5 @@
 Feature: Customer deposit functionality
-  customer should be able to deposit money into account successfully
+#  customer should be able to deposit money into account successfully
 
 #  @Smoke @Regression
   Scenario: Customer can deposit money into account successfully
